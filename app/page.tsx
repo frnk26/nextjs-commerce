@@ -1,9 +1,7 @@
-import { Inter } from 'next/font/google'
 import Image from 'next/image'
 import Stripe from 'stripe'
 import Product from './components/Product'
 
-const inter = Inter({ subsets: ['latin'] })
 const getProducts = async () => {
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
     apiVersion: '2022-11-15'
@@ -15,9 +13,10 @@ const getProducts = async () => {
       return {
         id: product.id,
         name: product.name,
-        price: prices.data[0].unit_amount,
+        unit_amount: prices.data[0].unit_amount,
         image: product.images[0],
-        currency: prices.data[0].currency
+        currency: prices.data[0].currency,
+        description: product.description
       }
     })
   )
@@ -26,9 +25,8 @@ const getProducts = async () => {
 
 export default async function Home() {
   const products = await getProducts()
-  console.log(products)
   return (
-    <div>
+    <div className="grid grid-cols-fluid gap-4">
       {products.map(product => (
         <Product key={product.id} {...product} />
       ))}
