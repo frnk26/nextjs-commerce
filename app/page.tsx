@@ -29,9 +29,8 @@ export default async function Home() {
   console.log(products)
   return (
     <div>
-      <h1 className=" text-violet-600 text-5xl">Next js 🔥🔥🔥 </h1>
       {products.map(product => (
-        <Product {...product} />
+        <Product key={product.id} {...product} />
       ))}
     </div>
   )
