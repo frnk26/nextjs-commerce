@@ -8,6 +8,7 @@ type SearchParams = {
   id: string
   unit_amount: number | null
   description: string | null
+  quantity: number | 1
 }
 
 export type SearchParamTypes = {

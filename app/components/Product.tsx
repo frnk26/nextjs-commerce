@@ -12,7 +12,7 @@ export default function Product({
   image: string
   unit_amount: number | null
   id: string
-  quantity?: number | 1
+  quantity: number | 1
   description: string | null
 }) {
   return (
@@ -26,11 +26,11 @@ export default function Product({
       {/* end link that fetch data product in descrition page */}
       <div>
         <Image
-          className="object-cover w-full h-48 md:h-96"
+          className="object-cover aspect-square "
           src={image}
           alt={name}
-          width={800}
-          height={800}
+          width={400}
+          height={400}
         />
         <div>
           <h1>{name}</h1>
