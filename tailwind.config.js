@@ -7,7 +7,11 @@ module.exports = {
 
   ],
   theme: {
-    extend: {},
+    extend: {
+      gridTemplateColumns: {
+        fluid: 'repeat(auto-fit, minmax(12rem, 1fr))'
+      },
+    },
   },
   plugins: [],
 }
