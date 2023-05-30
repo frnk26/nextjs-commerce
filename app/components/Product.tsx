@@ -12,7 +12,6 @@ export default function Product({
 	image: string
 	unit_amount: number | null
 	id: string
-	// quantity: number | 1
 	description: string | null
 }) {
 	return (
