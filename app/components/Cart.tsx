@@ -15,7 +15,7 @@ export default function Cart() {
 		>
 			<div
 				onClick={e => e.stopPropagation()}
-				className="bg-white absolute right-0 top-0 w-full h-screen overflow-y-scroll text-gray-700 p-7 md:w-1/4"
+				className="bg-white absolute right-0 top-0 w-full h-screen overflow-y-scroll text-gray-700 p-7 md:w-2/5"
 			>
 				<div className="flex justify-between mb-4">
 					<h3>Shopping List 📃</h3>
