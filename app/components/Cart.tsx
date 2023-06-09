@@ -4,6 +4,7 @@ import { useCartStore } from '@/store'
 import formatPrice from '@/util/PriceFormats'
 import Image from 'next/image'
 import { AiOutlineClose } from 'react-icons/ai'
+import { IoAddCircle, IoRemoveCircle } from 'react-icons/io5'
 
 export default function Cart() {
 	const cartStore = useCartStore()
@@ -14,7 +15,7 @@ export default function Cart() {
 		>
 			<div
 				onClick={e => e.stopPropagation()}
-				className="bg-white absolute right-0 top-0 w-full h-screen overflow-y-scroll text-gray-700 p-7 md:w-1/4z"
+				className="bg-white absolute right-0 top-0 w-full h-screen overflow-y-scroll text-gray-700 p-7 md:w-2/5"
 			>
 				<div className="flex justify-between mb-4">
 					<h3>Shopping List 📃</h3>
@@ -33,7 +34,35 @@ export default function Cart() {
 						/>
 						<div>
 							<h2>{item.name}</h2>
-							<h2>Quantity: {item.quantity}</h2>
+							<div className="flex gap-2">
+								<h2>Quantity: {item.quantity}</h2>
+								<button
+									onClick={() =>
+										cartStore.removeProduct({
+											id: item.id,
+											quantity: item.quantity,
+											unit_amount: item.unit_amount,
+											image: item.image,
+											name: item.name
+										})
+									}
+								>
+									<IoRemoveCircle />
+								</button>
+								<button
+									onClick={() =>
+										cartStore.addProduct({
+											id: item.id,
+											quantity: item.quantity,
+											unit_amount: item.unit_amount,
+											image: item.image,
+											name: item.name
+										})
+									}
+								>
+									<IoAddCircle />
+								</button>
+							</div>
 							<p>price: {item.unit_amount && formatPrice(item.unit_amount)}</p>
 						</div>
 					</div>
